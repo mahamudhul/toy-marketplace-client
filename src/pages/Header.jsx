@@ -1,8 +1,18 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+
+    const handleLogout = () => {
+        logOut()
+            .then()
+            .catch(error => console.log(error))
+    }
     return (
         <div>
             <div className="navbar bg-slate-900	 text-white">
@@ -16,7 +26,11 @@ const Header = () => {
                             <Link to='/alltoys'>All toys</Link>
                             <Link to='/addtoys'>Add toys</Link>
                             <Link to='/blogs'>Blogs</Link>
-                            <Link to='/login'>Log in</Link>
+                            {
+                                user ? <button onClick={handleLogout} variant='secondary' >Logout</button> : <Link to='/login'>
+                                    <button variant='secondary'>Login</button>
+                                </Link>
+                            }
                             <Link to='/register'>Register</Link>
                         </ul>
                     </div>
@@ -29,7 +43,12 @@ const Header = () => {
                         <Link to='/alltoys'>All toys</Link>
                         <Link to='/addtoys'>Add toys</Link>
                         <Link to='/blogs'>Blogs</Link>
-                        <Link to='/login'>Log in</Link>
+                        {
+                            user ? <button onClick={handleLogout} variant='secondary' >Logout</button> : <Link to='/login'>
+                                <button variant='secondary'>Login</button>
+                            </Link>
+                        }
+                        {/* <Link to='/login'>Log in</Link> */}
                         <Link to='/register'>Register</Link>
                     </ul>
                 </div>
