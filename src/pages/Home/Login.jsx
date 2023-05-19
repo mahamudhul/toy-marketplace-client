@@ -6,14 +6,19 @@ import React, { useContext, useState } from 'react';
 import svg from '../../assets/undraw_login_re_4vu2.svg'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 
 
 
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext)
+    const { signIn, signInGoogle } = useContext(AuthContext)
     const [error, setError] = useState('')
+
+
+    const googleProvider = new GoogleAuthProvider();
+
 
 
     const handleSubmit = (event) => {
@@ -36,6 +41,18 @@ const Login = () => {
                     setError('Your email / password is incorrect... ')
                     return
                 }
+            })
+    }
+
+    // google signIn
+    const handleGoogleSignIn = () => {
+        signInGoogle(googleProvider)
+            .then(result => {
+                const GoogleUser = result.user;
+                console.log(GoogleUser)
+            })
+            .catch(error => {
+                console.error('error', error.message)
             })
     }
 
@@ -69,8 +86,14 @@ const Login = () => {
                             </div>
                         </form>
                         <p className='my-5 mx-5'>Don't have account ? <Link className='text-lime-800 font-bold' to='/register'>Sign up</Link></p>
+
+                        <div className="m-5">
+                            <p>Sign in With: <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success text-2xl ">Google</button></p>
+
+                        </div>
                     </div>
                 </div>
+
                 <p className='text-error text-center mt-5'>{error}</p>
             </div>
         </div>

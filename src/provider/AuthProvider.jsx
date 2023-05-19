@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../firebase/firebase.config';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 
 
 
@@ -31,6 +31,11 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
+    const signInGoogle = (provider) =>{
+        // setLoading(true)
+        return signInWithPopup(auth, provider)
+    }
+
 
 
 
@@ -53,7 +58,8 @@ const AuthProvider = ({ children }) => {
         user,
         createUser,
         signIn,
-        logOut
+        logOut,
+        signInGoogle
     }
 
     return (
