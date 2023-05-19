@@ -89,7 +89,6 @@ const Login = () => {
 
                         <div className="m-5">
                             <p>Sign in With: <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success text-2xl ">Google</button></p>
-
                         </div>
                     </div>
                 </div>
