@@ -25,6 +25,7 @@ const Header = () => {
                             <Link to='/'>Home</Link>
                             <Link to='/alltoys'>All toys</Link>
                             <Link to='/addtoys'>Add toys</Link>
+                            <Link to='/mytoys'>My toys</Link>
                             <Link to='/blogs'>Blogs</Link>
                             {
                                 user ? <button onClick={handleLogout} variant='secondary' >Logout</button> : <Link to='/login'>
@@ -42,6 +43,7 @@ const Header = () => {
                         <Link to='/'>Home</Link>
                         <Link to='/alltoys'>All toys</Link>
                         <Link to='/addtoys'>Add toys</Link>
+                        <Link to='/mytoys'>My toys</Link>
                         <Link to='/blogs'>Blogs</Link>
                         {
                             user ? <button onClick={handleLogout} variant='secondary' >Logout</button> : <Link to='/login'>

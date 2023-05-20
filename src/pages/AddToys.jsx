@@ -6,10 +6,23 @@ import img from '../assets/undraw_add_document_re_mbjx.svg'
 
 const AddToys = () => {
 
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
-    
-    const onSubmit = data => console.log(data);
+
+    const onSubmit = (data) => {
+        // console.log(data);
+        fetch("http://localhost:5000/addtoys", {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(result => console.log(result))
+        
+    }
 
     return (
         <div className='flex items-center justify-around my-20'>
@@ -21,7 +34,12 @@ const AddToys = () => {
 
                 <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-2'>
 
-                    <input className='p-5 text-2xl m-3 border rounded-lg bg-slate-400' defaultValue="Name" {...register("name")} />
+                    <input 
+                    className='p-5 text-2xl m-3 border rounded-lg bg-slate-400'
+                    {...register("name")}
+                    placeholder='name'
+                    defaultValue="Name" 
+                     />
 
                     <input className='p-5 text-2xl m-3 border rounded-lg bg-slate-400' defaultValue="Seller name" {...register("sellerName")} />
 
@@ -41,8 +59,8 @@ const AddToys = () => {
 
                     <input className='p-5 text-2xl m-3 border rounded-lg bg-slate-400' defaultValue="Detail Description" {...register("description")} />
 
-
-                    {/* <input {...register("exampleRequired", { required: true })} /> */}
+                    <input className='p-5 text-2xl m-3 border rounded-lg bg-slate-400' defaultValue="Photo url" {...register("photoUrl")} />
+                    <br />
 
                     {/* {errors.exampleRequired && <span>This field is required</span>} */}
 
