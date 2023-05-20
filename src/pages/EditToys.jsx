@@ -41,9 +41,9 @@ const EditToys = () => {
                         <input className='p-5 text-2xl m-3 border rounded-lg bg-slate-400' defaultValue="Seller email" {...register("sellerEmail")} />
 
                         <select className='p-5 text-2xl m-3 border rounded-lg bg-slate-400' {...register("category")}>
-                            <option value="avenger">avenger</option>
-                            <option value="star-boys">star-boys</option>
-                            <option value="marvel">marvel</option>
+                            <option value="car">car</option>
+                            <option value="bus">bus</option>
+                            <option value="truck">truck</option>
                         </select>
 
                         <input className='p-5 text-2xl m-3 border rounded-lg bg-slate-400' defaultValue="price" {...register("price")} />
