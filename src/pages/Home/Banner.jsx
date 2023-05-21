@@ -4,7 +4,7 @@ import React from 'react';
 const Banner = () => {
     return (
         <div>
-            <div className='m-12 flex justify-center'>
+            {/* <div className='m-12 flex justify-center'> text-neutral-content
                 <div className="carousel w-5/6 max-h-80 rounded-lg">
                     <div id="slide1" className="carousel-item relative w-full">
                         <img src="https://img.freepik.com/premium-photo/robot-with-gun-is-standing-small-robot_782419-10062.jpg?w=996" className="w-full" />
@@ -33,6 +33,17 @@ const Banner = () => {
                             <a href="#slide3" className="btn btn-circle">❮</a>
                             <a href="#slide1" className="btn btn-circle">❯</a>
                         </div>
+                    </div>
+                </div>
+            </div> */}
+
+            <div className="hero min-h-screen" style={{ backgroundImage: `url("https://media.istockphoto.com/id/876439184/photo/vintage-toy-cars.jpg?b=1&s=170667a&w=0&k=20&c=-lfs5U5Ovrv7jAVGy2x6JrB1_j3h0UwHEfE6JwuDJj0=` }}>
+                <div className="hero-overlay bg-opacity-60"></div>
+                <div className="hero-content text-white ">
+                    <div className="max-w-md">
+                        <h1 className="mb-5 text-5xl font-bold">Welcome to Toy Zone</h1>
+                        <p className="mb-5">The ultimate destination for all your toy needs! Step into a world of wonder and excitement as you explore our vibrant and captivating shop. Bursting with a vast array of toys, games, and playtime essentials, Toy Zone is a haven for children and the young at heart.</p>
+                        <button className="btn btn-primary">Get Started</button>
                     </div>
                 </div>
             </div>

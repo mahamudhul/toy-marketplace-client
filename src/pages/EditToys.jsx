@@ -18,7 +18,12 @@ const EditToys = () => {
             body: JSON.stringify(data)
         })
         .then(res => res.json())
-        .then(result => console.log(result))
+        .then(result =>{
+            console.log(result)
+            if(data.modifiedCount == undefined){
+                alert('Toys Update successfully')
+            }
+        })
         
     }
 

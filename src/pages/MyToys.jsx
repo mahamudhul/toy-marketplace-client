@@ -26,11 +26,15 @@ const MyToys = () => {
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:3000/toy/${id}`, {
-            method: 'DELETE'
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
+        const proceed = confirm('Are you sure Want to delete')
+        if (proceed) {
+            fetch(`http://localhost:3000/toy/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => console.log(data))
+        }
+
     }
 
 

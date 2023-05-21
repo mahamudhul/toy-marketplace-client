@@ -19,9 +19,14 @@ const AddToys = () => {
             },
             body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(result => console.log(result))
-        
+            .then(res => res.json())
+            .then(result => {
+                console.log(result )
+                if (data.insertedId=== undefined) {
+                    alert('Toy Added successfully')
+                }
+            })
+
     }
 
     return (
@@ -34,12 +39,12 @@ const AddToys = () => {
 
                 <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-2'>
 
-                    <input 
-                    className='p-5 text-2xl m-3 border rounded-lg bg-slate-400'
-                    {...register("name")}
-                    placeholder='name'
-                    defaultValue="Name" 
-                     />
+                    <input
+                        className='p-5 text-2xl m-3 border rounded-lg bg-slate-400'
+                        {...register("name")}
+                        placeholder='name'
+                        defaultValue="Name"
+                    />
 
                     <input className='p-5 text-2xl m-3 border rounded-lg bg-slate-400' defaultValue="Seller name" {...register("sellerName")} />
 
