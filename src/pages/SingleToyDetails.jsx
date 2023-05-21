@@ -10,7 +10,7 @@ const SingleToyDetails = () => {
     console.log(toys)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/alltoys/${id}`)
+        fetch(`http://localhost:3000/alltoys/${id}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [])

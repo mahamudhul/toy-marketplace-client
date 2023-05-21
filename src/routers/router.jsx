@@ -10,6 +10,7 @@ import ErrorPage from "../pages/ErrorPage";
 import MyToys from "../pages/MyToys";
 import SingleToyDetails from "../pages/SingleToyDetails";
 import EditToys from "../pages/EditToys";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'alltoys/:id',
-                element: <SingleToyDetails></SingleToyDetails>
+                element: <PrivateRoute><SingleToyDetails></SingleToyDetails></PrivateRoute>
             },
             {
                 path: 'editToy/:id',

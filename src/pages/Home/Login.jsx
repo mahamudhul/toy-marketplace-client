@@ -4,7 +4,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react';
 import svg from '../../assets/undraw_login_re_4vu2.svg'
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 
@@ -20,6 +20,10 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider();
 
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -34,6 +38,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 // console.log(error);
@@ -94,6 +99,7 @@ const Login = () => {
                 </div>
 
                 <p className='text-error text-center mt-5'>{error}</p>
+                
             </div>
         </div>
     );

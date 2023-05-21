@@ -14,19 +14,19 @@ const MyToys = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys/${user?.email}`)
+        fetch(`http://localhost:3000/myToys/${user?.email}`)
             .then(res => res.json())
             .then(Result => setToys(Result))
     }, [user])
 
     const handleSearch = () => {
-        fetch(`http://localhost:5000/toysSearch/${searchText}`)
+        fetch(`http://localhost:3000/toysSearch/${searchText}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/toy/${id}`, {
+        fetch(`http://localhost:3000/toy/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

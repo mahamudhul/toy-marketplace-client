@@ -35,7 +35,7 @@ const Header = () => {
                             <Link to='/register'>Register</Link>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <a className="btn btn-ghost normal-case text-xl">Toy Zone</a>
                 </div>
 
                 <div className="navbar-center hidden lg:flex">
