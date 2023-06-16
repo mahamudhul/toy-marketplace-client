@@ -12,7 +12,7 @@ const AddToys = () => {
 
     const onSubmit = (data) => {
         // console.log(data);
-        fetch("http://localhost:3000/addtoys", {
+        fetch("https://toy-marketplace-server-omega-one.vercel.app/addtoys", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

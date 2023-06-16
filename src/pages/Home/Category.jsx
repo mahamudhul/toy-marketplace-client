@@ -14,7 +14,7 @@ const Category = () => {
     // console.log(toy)
 
     useEffect(() => {
-        fetch(`http://localhost:3000/category/${tab}`)
+        fetch(`https://toy-marketplace-server-omega-one.vercel.app/category/${tab}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [tab])

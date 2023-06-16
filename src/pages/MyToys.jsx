@@ -14,13 +14,13 @@ const MyToys = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:3000/myToys/${user?.email}`)
+        fetch(`https://toy-marketplace-server-omega-one.vercel.app/myToys/${user?.email}`)
             .then(res => res.json())
             .then(Result => setToys(Result))
     }, [user])
 
     const handleSearch = () => {
-        fetch(`http://localhost:3000/toysSearch/${searchText}`)
+        fetch(`https://toy-marketplace-server-omega-one.vercel.app/toysSearch/${searchText}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }
@@ -28,7 +28,7 @@ const MyToys = () => {
     const handleDelete = (id) => {
         const proceed = confirm('Are you sure Want to delete')
         if (proceed) {
-            fetch(`http://localhost:3000/toy/${id}`, {
+            fetch(`https://toy-marketplace-server-omega-one.vercel.app/toy/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -40,6 +40,7 @@ const MyToys = () => {
 
     return (
         <div>
+            <h1>this is header</h1>
             <div>
                 <div className="form-control my-12 mx-20">
                     <div className="input-group">

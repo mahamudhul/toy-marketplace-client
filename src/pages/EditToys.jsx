@@ -10,7 +10,7 @@ const EditToys = () => {
 
     const onSubmit = (data) => {
         // console.log(data);
-        fetch(`http://localhost:3000/toy/${id}`, {
+        fetch(`https://toy-marketplace-server-omega-one.vercel.app/toy/${id}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'
